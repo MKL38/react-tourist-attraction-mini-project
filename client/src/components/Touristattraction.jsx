@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from 'lucide-react';
+
 
 const TouristActraction = () => {
   const [searchInput, setSearchInput] = useState("");
@@ -86,13 +88,14 @@ const TouristActraction = () => {
                   })}
 
                   {/* Thumbnails */}
-                  <div className="flex gap-2">
+                  <div className="flex gap-2 ">
                     {item.photos.slice(1, 4).map((photo, idx) => (
                       <div key={idx} className="bg-gray-200 w-16 h-16 rounded-xl">
                         <img src={photo} alt="" className="w-full h-full object-cover rounded-xl" />
                       </div>
                     ))}
                   </div>
+                  <div className="flex justify-end hover:cursor-pointer" onClick={() => {navigator.clipboard.writeText(item.url); alert("Copied link to clipboard !")}} ><Link className="" color="#70c6ff" /></div>
                 </div>
               </div>
             );
